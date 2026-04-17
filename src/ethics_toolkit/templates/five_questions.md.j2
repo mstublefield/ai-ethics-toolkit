@@ -1,0 +1,48 @@
+{% if filled is not defined or not filled %}
+# Five Questions — Everyday AI Decision
+
+**Task under consideration:** _(describe the task / tool / use case)_
+
+Answer each honestly. "I'd rather not answer that" is a signal, not an exit.
+
+## 1. Why are you using AI for this task?
+_(your answer)_
+
+## 2. Can you explain your process clearly and honestly?
+_(your answer)_
+
+## 3. Where is the balance between automation and oversight?
+_(your answer)_
+
+## 4. Are you confident your AI system doesn't unfairly disadvantage anyone?
+_(your answer — and on what basis)_
+
+## 5. Are you sharing personally identifiable information or confidential data?
+_(your answer — and what anonymisation you apply)_
+
+---
+
+## Decision
+_(proceed / adjust / stop — and any conditions)_
+{% else %}
+# Five Questions — {{ task_description }}
+
+**1. Why are you using AI for this task?**
+{{ why_ai }}
+
+**2. Can you explain your process clearly and honestly?**
+{{ can_explain }}
+
+**3. Where is the balance between automation and oversight?**
+{{ automation_oversight_balance }}
+
+**4. Are you confident your AI system doesn't unfairly disadvantage anyone?**
+{{ fairness_confidence }}
+
+**5. Are you sharing personally identifiable information or confidential data?**
+{{ pii_disclosure }}
+
+---
+
+**Decision:** {{ decision }}
+{% endif %}

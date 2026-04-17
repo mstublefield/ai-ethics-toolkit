@@ -1,0 +1,107 @@
+# NIST AI RMF 1.0 — 7 Trustworthy Characteristics (re-derived from the public primary text)
+# Source: NIST AI Risk Management Framework 1.0 (public document), https://www.nist.gov/itl/ai-risk-management-framework
+#
+# This is a keyword-level checklist used by `ethics crosswalk`. A policy that covers each
+# characteristic should contain at least one term from its `must_reference_any` list
+# (case-insensitive substring match). Not a substitute for judgment — it's a presence check.
+
+characteristics:
+  - id: valid_reliable
+    name: Valid and reliable
+    summary: >
+      AI systems should perform their intended function accurately and consistently,
+      with documented measurement of validity and reliability across relevant contexts.
+    must_reference_any:
+      - reliability
+      - reliable
+      - accuracy
+      - validity
+      - validation
+      - testing
+      - performance monitoring
+
+  - id: safe
+    name: Safe
+    summary: >
+      AI systems should not endanger human life, health, property, or the environment,
+      across foreseeable use and misuse.
+    must_reference_any:
+      - safety
+      - safeguard
+      - harm
+      - risk
+      - fail-safe
+      - failsafe
+
+  - id: secure_resilient
+    name: Secure and resilient
+    summary: >
+      AI systems should withstand adverse events (attacks, failures, unexpected inputs)
+      and recover gracefully. Security controls apply across the pipeline.
+    must_reference_any:
+      - security
+      - secure
+      - resilience
+      - adversarial
+      - threat
+      - vulnerability
+      - access control
+
+  - id: accountable_transparent
+    name: Accountable and transparent
+    summary: >
+      Organizations and individuals deploying AI should be identifiable and responsible
+      for outcomes; the system's design, data, and decisions should be traceable and
+      disclosable to the extent possible.
+    must_reference_any:
+      - accountability
+      - accountable
+      - transparency
+      - transparent
+      - disclose
+      - disclosure
+      - traceable
+      - documentation
+
+  - id: explainable_interpretable
+    name: Explainable and interpretable
+    summary: >
+      Stakeholders should be able to understand how the system produces its outputs at a
+      level appropriate to their role and the decision's stakes.
+    must_reference_any:
+      - explainability
+      - explainable
+      - interpretability
+      - interpretable
+      - explanation
+      - rationale
+
+  - id: privacy_enhanced
+    name: Privacy-enhanced
+    summary: >
+      AI systems should protect human autonomy, dignity, and identity, including by
+      minimizing data collection and applying privacy-preserving techniques where
+      applicable.
+    must_reference_any:
+      - privacy
+      - confidential
+      - pii
+      - personally identifiable
+      - data minimization
+      - minimisation
+      - anonym
+      - consent
+
+  - id: fair_bias_managed
+    name: Fair — with harmful bias managed
+    summary: >
+      Systems should be designed and operated to avoid producing unfair outcomes; biases
+      should be identified, measured, and mitigated throughout the lifecycle.
+    must_reference_any:
+      - fairness
+      - fair
+      - bias
+      - equity
+      - discrimination
+      - equitable
+      - impartial

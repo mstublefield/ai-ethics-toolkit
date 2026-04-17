@@ -1,0 +1,87 @@
+{% if filled is not defined or not filled %}
+# Consequence Scanning — Worksheet
+
+**Decision under analysis:** _(describe the major business-model / strategic decision here)_
+
+Use this for **major, business-changing** decisions: launching a new service, training a custom model, substituting significant human work with AI. For smaller decisions use `ethics five-questions` or `ethics worksheet impact`.
+
+The goal isn't predicting the future — it's surfacing potential issues early.
+
+---
+
+## Step 1 — Intended consequences
+
+Positive outcomes you're aiming for. For each, note timeframe and who benefits.
+
+- _(add here)_
+
+## Step 2 — Unintended consequences
+
+Negative outcomes that could happen even though you don't mean them to. This is where honesty costs the most and pays the most.
+
+- _(add here)_
+
+## Step 3 — Action sorting
+
+Take every consequence from steps 1 and 2 and sort it.
+
+| Act (direct control) | Influence (shape but not control) | Monitor (outside control, worth watching) |
+|----------------------|-----------------------------------|-------------------------------------------|
+|                      |                                   |                                           |
+
+## Step 4 — Balance
+
+- Can the risks be mitigated?
+- Can the rewards be captured?
+- Is this good as a business move?
+- Is this good as an ethical move?
+
+**Recommended posture:** proceed / proceed with conditions / stop
+{% else %}
+# Consequence Scanning — {{ decision_description }}
+
+## Intended consequences
+
+{% for c in intended_consequences %}
+- **{{ c.description }}**{% if c.timeframe %} _(timeframe: {{ c.timeframe }})_{% endif %}{% if c.stakeholders %} — affects: {{ c.stakeholders | join(", ") }}{% endif %}
+{% else %}
+- _(none recorded)_
+{% endfor %}
+
+## Unintended consequences
+
+{% for c in unintended_consequences %}
+- **{{ c.description }}**{% if c.timeframe %} _(timeframe: {{ c.timeframe }})_{% endif %}{% if c.stakeholders %} — affects: {{ c.stakeholders | join(", ") }}{% endif %}
+{% else %}
+- _(none recorded)_
+{% endfor %}
+
+## Action sorting
+
+**Act (direct control):**
+{% for item in act %}
+- {{ item }}
+{% else %}
+- _(none)_
+{% endfor %}
+
+**Influence (shape but not control):**
+{% for item in influence %}
+- {{ item }}
+{% else %}
+- _(none)_
+{% endfor %}
+
+**Monitor (outside control):**
+{% for item in monitor %}
+- {{ item }}
+{% else %}
+- _(none)_
+{% endfor %}
+
+## Balance
+
+{{ risk_reward_balance }}
+
+**Recommended posture:** {{ proceed }}
+{% endif %}

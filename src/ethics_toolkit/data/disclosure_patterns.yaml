@@ -1,0 +1,136 @@
+# Disclosure and ethics-smell patterns for lint-disclosure.
+# Each rule has:
+#   id: short stable identifier
+#   name: human label
+#   category: what dimension it touches (disclosure / pii / claim / bias / privacy)
+#   severity: low | medium | high | critical
+#   description: one-line explanation of why this matters
+#   patterns: list of regex (Python re, IGNORECASE by default)
+#   requires_any_present: list of regex — if ANY matches the file, suppress this finding
+#     (use for "disclosure section present, so the 'no disclosure' flag doesn't fire")
+
+rules:
+  - id: claim-no-ai-used
+    name: Unqualified "no AI used" claim
+    category: disclosure
+    severity: medium
+    description: >
+      Asserting "no AI was used" without qualification invites dispute if any tool in
+      the workflow had AI assistance. Scope these claims precisely.
+    patterns:
+      - '\bno\s+ai\s+(?:was\s+)?used\b'
+      - '\b100%\s+human\b'
+      - '\bentirely\s+human[- ]written\b'
+
+  - id: missing-ai-disclosure
+    name: Long document with no AI-use disclosure
+    category: disclosure
+    severity: low
+    description: >
+      Document is over 500 words but contains no AI-usage language. Consider adding a
+      disclosure if AI was used in any substantive way.
+    patterns:
+      - '^.{2500,}$'
+    requires_any_present:
+      - '\bai[- ](?:use|assist|generat|written|drafted)'
+      - '\b(?:chatgpt|claude|gemini|copilot|midjourney|dall[- ]?e|stable\s+diffusion)\b'
+      - '\bgenerative\s+ai\b'
+      - '\bllm\b'
+
+  - id: pii-email
+    name: Email address in document
+    category: pii
+    severity: medium
+    description: >
+      Email addresses in a publishable draft may violate a client's privacy expectations
+      or GDPR. Confirm consent or redact.
+    patterns:
+      - '\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b'
+
+  - id: pii-phone
+    name: Phone number in document
+    category: pii
+    severity: medium
+    description: >
+      Phone numbers are identifiable personal data. Confirm consent or redact.
+    patterns:
+      - '\b\+?\d{1,3}[\s.-]?\(?\d{2,4}\)?[\s.-]?\d{3,4}[\s.-]?\d{3,4}\b'
+      - '\b\d{3}[\s.-]\d{3}[\s.-]\d{4}\b'
+
+  - id: pii-ssn
+    name: US Social Security Number pattern
+    category: pii
+    severity: critical
+    description: >
+      Regex match on SSN-shaped string. Must be redacted before any AI processing or publication.
+    patterns:
+      - '\b\d{3}-\d{2}-\d{4}\b'
+
+  - id: pii-credit-card
+    name: Credit card-shaped number
+    category: pii
+    severity: critical
+    description: >
+      16-digit pattern consistent with a credit card. Must be redacted.
+    patterns:
+      - '\b(?:\d{4}[\s-]?){3}\d{4}\b'
+
+  - id: claim-100-accurate
+    name: '"100% accurate" or equivalent absolutist claim'
+    category: claim
+    severity: high
+    description: >
+      AI tools hallucinate. Absolutist accuracy claims are unsupportable and create legal
+      exposure. Qualify with the actual review process.
+    patterns:
+      - '\b100%\s+accurate\b'
+      - '\balways\s+correct\b'
+      - '\bguaranteed\s+(?:accurate|correct|error[- ]free)\b'
+      - '\bnever\s+(?:wrong|hallucinates?)\b'
+
+  - id: claim-no-bias
+    name: '"No bias" absolutist claim'
+    category: claim
+    severity: high
+    description: >
+      "AI systems inherit biases from training data" (AI Ethics fundamentals). Claiming
+      the absence of bias without measurement is unsupportable.
+    patterns:
+      - '\bno\s+bias\b'
+      - '\bbias[- ]free\b'
+      - '\bcompletely\s+(?:fair|unbiased)\b'
+
+  - id: bias-demographic-assumption
+    name: Demographic or gendered stereotype wording
+    category: bias
+    severity: medium
+    description: >
+      Language that assumes default demographics ("he" for engineer, "she" for nurse,
+      "typical user" without qualification) can embed bias into content. Review.
+    patterns:
+      - '\btypical\s+(?:user|customer|developer|engineer|manager)\b'
+      - '\bhousewife\b'
+      - '\bmanpower\b'
+      - '\bchairman\b(?!\s+(?:of\s+the\s+board|mao))'
+
+  - id: privacy-uploaded-to-chatgpt
+    name: Reference to uploading client/proprietary data to an AI tool
+    category: privacy
+    severity: high
+    description: >
+      Uploading confidential data into third-party AI tools may breach client contracts,
+      GDPR, or NDAs. Flag for explicit consent.
+    patterns:
+      - '\b(?:upload|paste|enter|feed)(?:ed|ing)?\s+.{0,40}\b(?:chatgpt|claude|gemini|copilot|bard)\b'
+      - '\b(?:client|customer|confidential|proprietary|internal)\s+data\s+.{0,40}(?:chatgpt|claude|gemini)'
+
+  - id: claim-ai-replaces-human
+    name: '"AI replaces" human professionals claim'
+    category: claim
+    severity: medium
+    description: >
+      Claims that AI replaces human judgment in professional contexts (legal, medical,
+      financial) are high-risk. Qualify or remove.
+    patterns:
+      - '\breplaces?\s+(?:a\s+)?(?:lawyer|doctor|accountant|therapist|advisor)\b'
+      - '\bno\s+need\s+for\s+(?:a\s+)?human\b'

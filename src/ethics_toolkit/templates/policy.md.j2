@@ -1,0 +1,126 @@
+---
+title: "AI Use Policy — {{ owner_name }}"
+version: {{ version }}
+last_updated: {{ last_updated }}
+---
+
+# AI Use Policy — {{ owner_name }}
+
+## 1. My approach to AI
+
+{{ approach }}
+
+## 2. My ethical foundation
+
+My approach to AI is guided by five core principles of responsible AI use: **privacy, fairness, transparency, accountability, and quality.**
+
+{% for key in ["privacy", "fairness", "transparency"] %}
+{% if key in principles %}
+### {{ key | capitalize }}
+
+**What this means:** {{ principles[key].meaning }}
+
+**Why it matters:** {{ principles[key].why_it_matters }}
+
+{% endif %}
+{% endfor %}
+{% if "accountability" in principles %}
+### Accountability
+
+**What this means:** {{ principles["accountability"].meaning }}
+
+I maintain full responsibility for all work that goes out under my name, whether AI-assisted or not. This means:
+
+{% for item in principles["accountability"].review_process %}
+- *Review process —* {{ item }}
+{% endfor %}
+{% for item in principles["accountability"].checkpoints %}
+- *Checkpoint —* {{ item }}
+{% endfor %}
+{% for item in principles["accountability"].documentation %}
+- *Documentation —* {{ item }}
+{% endfor %}
+{% for item in principles["accountability"].ownership %}
+- *Ownership —* {{ item }}
+{% endfor %}
+
+**Why it matters:** {{ principles["accountability"].why_it_matters }}
+
+{% endif %}
+{% if "quality" in principles %}
+### Quality
+
+**What this means:** {{ principles["quality"].meaning }}
+
+**Why it matters:** {{ principles["quality"].why_it_matters }}
+
+{% endif %}
+
+## 3. How I use AI throughout my process
+
+{% for phase in phases %}
+### Phase {{ loop.index }}: {{ phase.name }}
+
+**What I use AI for:**
+
+{% for item in phase.use_ai_for %}
+- {{ item }}
+{% endfor %}
+{% if not phase.use_ai_for %}
+- _(none)_
+{% endif %}
+
+**What I don't use AI for:**
+
+{% for item in phase.never_use_ai_for %}
+- {{ item }}
+{% endfor %}
+{% if not phase.never_use_ai_for %}
+- _(none)_
+{% endif %}
+
+**Non-negotiables:**
+
+{% for item in phase.non_negotiables %}
+- {{ item }}
+{% endfor %}
+{% if not phase.non_negotiables %}
+- _(none)_
+{% endif %}
+{% if phase.why_this_matters %}
+
+**Why this matters:** {{ phase.why_this_matters }}
+{% endif %}
+
+{% endfor %}
+## 4. My approved tools
+
+**Primary AI tools:**
+
+{% for tool in approved_tools %}
+- **{{ tool.name }}** — {{ tool.purpose }}{{ (" _" ~ tool.rationale ~ "_") if tool.rationale else "" }}
+{% endfor %}
+{% if not approved_tools %}
+- _(no tools listed)_
+{% endif %}
+
+{% if client_permission_note %}
+**On client permission:** {{ client_permission_note }}
+
+{% endif %}
+{% if tool_selection_criteria %}
+**Tool selection:** {{ tool_selection_criteria }}
+
+{% endif %}
+
+## 5. Review and updates
+
+This policy is reviewed **{{ review_frequency }}** as new tools and challenges emerge.
+{% if subcontractor_clause %}
+
+{{ subcontractor_clause }}
+{% endif %}
+
+*Last updated: {{ last_updated }}*
+
+*Version: {{ version }}*

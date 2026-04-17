@@ -1,0 +1,78 @@
+# Fairness Audit — {{ data_path }}
+
+**Target column:** `{{ target_column }}`
+**Protected attributes:** {{ protected_columns | join(", ") }}
+{% if score_column %}
+**Score column:** `{{ score_column }}`
+{% endif %}
+**Positive label:** `{{ positive_label }}`
+**Rows analyzed:** {{ n_rows }}
+**Date:** {{ date_of_review }}
+
+---
+
+## Summary
+
+- **Selection rate overall:** {{ "%.3f" % overall_rate }}
+- **Worst severity found:** **{{ worst_severity | upper }}**
+- Severity tiers: low 0.90–1.00 · medium 0.80–0.90 · high 0.70–0.80 · critical <0.70
+
+## Per-attribute findings
+
+{% for a in attributes %}
+### `{{ a.name }}`
+
+| Group | n | Selection rate | Ratio (vs max) | Severity |
+|-------|---|----------------|----------------|----------|
+{% for g in a.groups %}
+| {{ g.label }} | {{ g.n }} | {{ "%.3f" % g.rate }} | {{ "%.3f" % g.ratio_vs_max }} | {{ g.severity }} |
+{% endfor %}
+
+**Demographic parity difference:** {{ "%.3f" % a.dpd }}
+**Demographic parity ratio (min/max):** {{ "%.3f" % a.dpr }}
+{% if a.eo_diff is not none %}
+**Equalized odds difference (TPR):** {{ "%.3f" % a.eo_diff }}
+{% endif %}
+{% if a.four_fifths_violations %}
+
+**Four-fifths rule violations:**
+{% for v in a.four_fifths_violations %}
+- Group `{{ v.label }}` has ratio {{ "%.3f" % v.ratio }} vs the highest-rate group. Flagged.
+{% endfor %}
+{% endif %}
+
+{% endfor %}
+
+{% if proxies %}
+## Potential proxy variables
+
+These non-protected columns correlate strongly (|r| > {{ "%.2f" % proxy_threshold }}) with protected attributes:
+
+| Feature | Protected attribute | Pearson r |
+|---------|---------------------|-----------|
+{% for p in proxies %}
+| `{{ p.feature }}` | `{{ p.protected }}` | {{ "%.3f" % p.r }} |
+{% endfor %}
+
+Review these features: they can reintroduce the same disparities even after dropping the protected attribute.
+
+{% endif %}
+
+## Recommended mitigations
+
+{% for m in mitigations %}
+- {{ m }}
+{% endfor %}
+
+## Regulatory mapping
+
+- **IEEE Ethically Aligned Design** — fairness / well-being / transparency.
+- **EU Ethics Guidelines for Trustworthy AI** — diversity, non-discrimination and fairness.
+- **ACM Code of Ethics** — 1.4 (be fair and take action not to discriminate).
+- **NIST AI RMF 1.0** — `MEASURE` function, "fair with harmful bias managed".
+
+## Caveats
+
+- This report reflects the state of the provided dataset only — retraining or data drift requires a rerun.
+- Statistical fairness metrics don't capture everything that matters ethically. Use this as evidence for judgment, not as a pass/fail stamp.
+- Small group sizes (n < 30) should be interpreted with caution; confidence intervals are wide.

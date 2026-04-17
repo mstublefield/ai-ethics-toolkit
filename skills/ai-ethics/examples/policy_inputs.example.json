@@ -1,0 +1,106 @@
+{
+  "owner_name": "Jane Doe Consulting",
+  "approach": "I use AI where it measurably improves the quality of my work, and avoid it where it would compromise judgment, voice, or client trust. My philosophy is that AI is a tool, not a replacement for the human expertise my clients are paying for. I disclose AI use when it's more than incidental, and I apply the same quality standard to AI-assisted work as to work I do by hand. What clients are buying from me is judgment, experience, and accountability — AI doesn't provide any of those.",
+  "principles": {
+    "privacy": {
+      "meaning": "Client data, internal documents, and personally identifiable information never enter a third-party AI tool without explicit permission. I anonymise or generalise whenever practical.",
+      "why_it_matters": "My clients share information in good faith. Funneling it through opaque third-party systems violates that trust and exposes them to breach risk I can't control."
+    },
+    "fairness": {
+      "meaning": "I actively check AI outputs for biased assumptions, especially when they touch people — hiring, evaluation, content about groups, or service recommendations.",
+      "why_it_matters": "AI inherits bias from training data. If I ship unchecked outputs, I'm amplifying those biases on my clients' behalf without their knowledge."
+    },
+    "transparency": {
+      "meaning": "I disclose when AI assistance is more than incidental — for example, when I use it to generate, analyse, or substantially transform content a client will see.",
+      "why_it_matters": "Clients hire me for human judgment. Hiding AI use misrepresents what they're paying for and damages trust when discovered."
+    },
+    "accountability": {
+      "meaning": "I am responsible for every output that leaves my desk, regardless of how it was produced.",
+      "why_it_matters": "AI mistakes are still my mistakes. Clients can't audit the tool; they can only audit me.",
+      "review_process": [
+        "Every AI-assisted draft gets a full human edit pass before delivery.",
+        "For factual claims, I cite or verify from a non-AI source."
+      ],
+      "checkpoints": [
+        "Post-draft review against the client brief.",
+        "Final read-through specifically for hallucination or fabricated citations."
+      ],
+      "documentation": [
+        "I keep a private log of which tools were used on which deliverable."
+      ],
+      "ownership": [
+        "All IP remains with the client unless contractually agreed otherwise."
+      ]
+    },
+    "quality": {
+      "meaning": "AI speeds up drafting and research, but the ceiling for quality is set by human judgment, not by the model.",
+      "why_it_matters": "Clients don't pay for fast — they pay for good. AI that undermines quality defeats the point."
+    }
+  },
+  "phases": [
+    {
+      "name": "Discovery and briefing",
+      "use_ai_for": [
+        "Summarising public background material on a client's industry",
+        "Generating a starter list of questions to ask"
+      ],
+      "never_use_ai_for": [
+        "Analysing confidential client material",
+        "Drafting my recommended approach"
+      ],
+      "non_negotiables": [
+        "Client IP never enters a third-party tool",
+        "All outputs reviewed before use"
+      ],
+      "why_this_matters": "The framing of the engagement sets everything that follows. This phase demands my judgment, not a model's."
+    },
+    {
+      "name": "Drafting",
+      "use_ai_for": [
+        "Structural outlines for long documents",
+        "Rephrasing passages for clarity"
+      ],
+      "never_use_ai_for": [
+        "Writing final client-facing prose without heavy editing",
+        "Generating claims that will be attributed to me or the client"
+      ],
+      "non_negotiables": [
+        "Every AI-touched paragraph gets a full edit pass"
+      ],
+      "why_this_matters": "Voice and accuracy are the product."
+    },
+    {
+      "name": "Review and delivery",
+      "use_ai_for": [
+        "Grammar and typo detection"
+      ],
+      "never_use_ai_for": [
+        "Deciding what to cut or keep",
+        "Assessing whether the work meets the brief"
+      ],
+      "non_negotiables": [
+        "No AI-generated text is delivered without human review",
+        "Clients are told when AI was used in any substantive way"
+      ],
+      "why_this_matters": "Delivery is where accountability shows up. The work must be defensible as mine."
+    }
+  ],
+  "approved_tools": [
+    {
+      "name": "Claude",
+      "purpose": "Drafting assistance, structural outlines, code review",
+      "rationale": "Good at long-form reasoning; clear safety posture."
+    },
+    {
+      "name": "Grammarly",
+      "purpose": "Copy editing and typo detection",
+      "rationale": "Incidental use; does not need per-project disclosure."
+    }
+  ],
+  "client_permission_note": "I ask for explicit written permission before entering any client material into a third-party AI tool, even for prompt context.",
+  "tool_selection_criteria": "Privacy posture (training opt-out, data retention), model quality, provenance, and whether the vendor has a credible responsible-AI track record.",
+  "review_frequency": "quarterly, and after any challenging engagement",
+  "subcontractor_clause": "Anyone subcontracting with me is required to follow these guidelines.",
+  "last_updated": "2026-04-17",
+  "version": "0.1.0"
+}

@@ -1,0 +1,35 @@
+decision_description: Introducing Claude to draft initial research summaries for client briefings.
+
+personal:
+  q1: "My professional value is in synthesis and insight; AI-drafted summaries could erode that if clients stop noticing the difference."
+  q2: "I take on responsibility for every claim in the summary, including anything the model invented."
+  q3: "Risk that I stop doing the reading myself; mitigated by reading the sources before reviewing AI output."
+  additional_notes: ""
+
+relational:
+  q1: "Yes, provided I review the summary against primary sources before delivery."
+  q2: "Collaborators are told when Claude is involved; included in project notes."
+  q3: "End users (the executives reading the briefings) aren't directly affected if accuracy holds; affected if it doesn't."
+  additional_notes: ""
+
+business:
+  q1: "Faster turnaround; modestly lower margins per project due to review time."
+  q2: "Reputational risk if a client catches a hallucinated citation; estimated cost to rebuild trust ~30% of engagement value."
+  q3: "Dependency on Claude's API; if it disappears, reversible but painful mid-project."
+  additional_notes: ""
+
+industry:
+  q1: "Raising standards if I do this well (disclosure, review); lowering them if I don't."
+  q2: "Small downward pressure on perceived value of human-authored research summaries."
+  q3: "Precedent-setting: my peers are watching how solos handle this."
+  additional_notes: ""
+
+society:
+  q1: "If every research consultant adopted this, quality of public-facing research would fall; concentration on LLM providers would grow."
+  q2: "Accelerates normalization of AI-assisted research; ambivalent — may help or harm."
+  q3: "Ideal future has AI handling mechanical work; my decisions here move us closer if disclosure and review are non-negotiable."
+  additional_notes: ""
+
+compounding_risks: "Skill atrophy (personal) + rate compression (industry) + concentration on vendor (business)."
+compounding_benefits: "Time freed (personal) + faster turnaround (business) + raised standards (industry), if I maintain review discipline."
+proceed: "Proceed with conditions: explicit disclosure language, documented review protocol, 90-day quality retrospective."

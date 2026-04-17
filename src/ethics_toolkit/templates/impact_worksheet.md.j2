@@ -1,0 +1,118 @@
+{% if filled is not defined or not filled %}
+# Five-Layer AI Impact Analysis — Worksheet
+
+**Decision under analysis:** _(describe here)_
+
+Use this worksheet for medium-scale AI decisions: changing a workflow, introducing a tool, adding AI to client work. For per-task decisions use `ethics five-questions`. For business-model decisions use `ethics worksheet scan`.
+
+Work through each layer with written answers. The questions are thought-starters, not a complete list.
+
+---
+
+## 1. Personal — How does this affect me?
+
+1. How does this AI use affect my professional reputation and credibility?
+2. What liability or responsibility am I taking on?
+3. Am I maintaining or developing the skills that define my professional value?
+
+_(your notes)_
+
+## 2. Relational — How does this affect the people I work with?
+
+1. Is my client receiving the quality and type of work they believe they're purchasing?
+2. Am I being transparent with collaborators about my AI use?
+3. How might end users be affected by bias, errors, or lack of transparency?
+
+_(your notes)_
+
+## 3. Business — How does this affect my business sustainability?
+
+1. How does this affect my business sustainability and competitive position?
+2. What are the financial and reputational risks if something goes wrong?
+3. Am I creating dependencies on AI tools that could threaten my business if they change or disappear?
+
+_(your notes)_
+
+## 4. Industry — How does this affect my field?
+
+1. Am I contributing to raising or lowering professional standards in my field?
+2. How does this affect pricing expectations and the perceived value of human expertise?
+3. What precedent am I setting for how AI should integrate into professional services?
+
+_(your notes)_
+
+## 5. Society — How does this affect the world?
+
+1. What are the broader implications if everyone in my position made similar choices?
+2. Am I contributing to beneficial or harmful societal trends around AI adoption?
+3. What would an ideal future of human-AI collaboration look like, and do my decisions move us closer to or further from it?
+
+_(your notes)_
+
+---
+
+## Synthesis
+
+**Compounding risks across layers:**
+
+**Compounding benefits across layers:**
+
+**Recommended posture:** proceed / proceed with conditions / stop
+{% else %}
+# Five-Layer AI Impact Analysis — {{ decision_description }}
+
+## 1. Personal
+
+- {{ personal.q1 }}
+- {{ personal.q2 }}
+- {{ personal.q3 }}
+{% if personal.additional_notes %}
+- Additional: {{ personal.additional_notes }}
+{% endif %}
+
+## 2. Relational
+
+- {{ relational.q1 }}
+- {{ relational.q2 }}
+- {{ relational.q3 }}
+{% if relational.additional_notes %}
+- Additional: {{ relational.additional_notes }}
+{% endif %}
+
+## 3. Business
+
+- {{ business.q1 }}
+- {{ business.q2 }}
+- {{ business.q3 }}
+{% if business.additional_notes %}
+- Additional: {{ business.additional_notes }}
+{% endif %}
+
+## 4. Industry
+
+- {{ industry.q1 }}
+- {{ industry.q2 }}
+- {{ industry.q3 }}
+{% if industry.additional_notes %}
+- Additional: {{ industry.additional_notes }}
+{% endif %}
+
+## 5. Society
+
+- {{ society.q1 }}
+- {{ society.q2 }}
+- {{ society.q3 }}
+{% if society.additional_notes %}
+- Additional: {{ society.additional_notes }}
+{% endif %}
+
+---
+
+## Synthesis
+
+**Compounding risks:** {{ compounding_risks }}
+
+**Compounding benefits:** {{ compounding_benefits }}
+
+**Recommended posture:** {{ proceed }}
+{% endif %}

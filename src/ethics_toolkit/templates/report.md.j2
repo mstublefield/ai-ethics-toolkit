@@ -1,0 +1,53 @@
+# 🛡️ AI Ethics Assessment Report
+
+**Subject:** {{ subject }}
+**Reviewer:** {{ reviewer }}
+**Date:** {{ date_of_review }}
+
+## Executive summary
+
+{{ executive_summary }}
+
+{% if context %}
+## Context
+
+{{ context }}
+{% endif %}
+
+## Findings
+
+{% if findings %}
+| Area | Severity | Finding | Recommendation |
+|------|----------|---------|----------------|
+{% for f in findings %}
+| {{ f.area }} | {{ f.severity }} | {{ f.description }} | {{ f.recommendation }} |
+{% endfor %}
+{% else %}
+_No findings._
+{% endif %}
+
+{% if regulatory_notes %}
+## Regulatory notes
+
+{{ regulatory_notes }}
+{% endif %}
+
+{% if mitigations %}
+## Recommended mitigations
+
+{% for m in mitigations %}
+- {{ m }}
+{% endfor %}
+{% endif %}
+
+{% if monitoring_plan %}
+## Monitoring plan
+
+{{ monitoring_plan }}
+{% endif %}
+
+{% if residual_risk %}
+## Residual risk
+
+{{ residual_risk }}
+{% endif %}

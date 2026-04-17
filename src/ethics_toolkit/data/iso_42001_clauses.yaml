@@ -1,0 +1,86 @@
+# ISO/IEC 42001:2023 — Management System clause checklist (re-derived from the public
+# standard's publicly described clause structure). Not a substitute for the standard;
+# used by `ethics crosswalk` for coarse keyword-presence checks against a policy.
+
+clauses:
+  - id: 4_context
+    name: "Clause 4 — Context of the organization"
+    summary: >
+      Scope of the AI management system, interested parties, internal and external
+      issues affecting its ability to achieve intended outcomes.
+    must_reference_any:
+      - context
+      - scope
+      - stakeholder
+      - interested parties
+
+  - id: 5_leadership
+    name: "Clause 5 — Leadership"
+    summary: >
+      Top management commitment; AI policy; organizational roles, responsibilities, and
+      authorities.
+    must_reference_any:
+      - leadership
+      - policy
+      - role
+      - responsibility
+      - accountability
+
+  - id: 6_planning
+    name: "Clause 6 — Planning"
+    summary: >
+      Addressing risks and opportunities; AI objectives; risk assessment and treatment
+      planning over the AI system lifecycle.
+    must_reference_any:
+      - risk
+      - objective
+      - planning
+      - assessment
+      - mitigation
+
+  - id: 7_support
+    name: "Clause 7 — Support"
+    summary: >
+      Resources, competence, awareness, communication, documented information.
+    must_reference_any:
+      - competence
+      - training
+      - awareness
+      - communication
+      - documentation
+
+  - id: 8_operation
+    name: "Clause 8 — Operation"
+    summary: >
+      Operational planning and control; AI system impact assessment; system lifecycle
+      processes from concept to decommissioning.
+    must_reference_any:
+      - operation
+      - lifecycle
+      - life-cycle
+      - impact assessment
+      - process
+      - control
+
+  - id: 9_performance
+    name: "Clause 9 — Performance evaluation"
+    summary: >
+      Monitoring, measurement, analysis, evaluation; internal audit; management review.
+    must_reference_any:
+      - monitor
+      - measurement
+      - evaluation
+      - audit
+      - review
+
+  - id: 10_improvement
+    name: "Clause 10 — Improvement"
+    summary: >
+      Nonconformity and corrective action; continual improvement of the AI management
+      system.
+    must_reference_any:
+      - improvement
+      - corrective
+      - nonconformity
+      - update
+      - revise

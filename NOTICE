@@ -1,0 +1,68 @@
+# Notices and Attributions
+
+This toolkit synthesizes ideas, framework shapes, and specific threshold values
+from several publicly available sources. Each contribution is credited below.
+Nothing in this repository was copied verbatim from unlicensed sources.
+
+## MIT-licensed upstream inspiration
+
+- **Fairness metric definitions and severity tiers** — adapted from the
+  `validating-ai-ethics-and-fairness` skill in
+  https://github.com/jeremylongshore/claude-code-plugins-plus-skills
+  (MIT License, Jeremy Longshore). The four-fifths-rule classification
+  (low 0.90–1.0, medium 0.80–0.90, high 0.70–0.80, critical <0.70) and the
+  proxy-variable correlation threshold (r > 0.3) follow his skill's spec.
+
+- **NIST AI RMF 1.0 and ISO/IEC 42001:2023 mapping patterns** — adapted from
+  the `nist-ai-rmf` and `iso-42001-ai-governance` skills in
+  https://github.com/mastepanoski/claude-skills (MIT License, Mario
+  Stepanoski). Our checklist data files are re-derived from the public NIST
+  and ISO source material but follow the mapping patterns these skills
+  established.
+
+- **Advisory framing and the six-principle vocabulary** — inspired by the
+  `ai-ethics-advisor` agent in
+  https://github.com/davila7/claude-code-templates (MIT License, Daniel
+  Avila).
+
+## Independently re-derived, not copied
+
+- **Decision-making frameworks** (Five Questions, Five-Layer Impact Analysis,
+  Consequence Scanning) — these are general ethical-review patterns derivable
+  from public sources. Consequence scanning in particular originates in Agile
+  product development and is described publicly by Doteveryone / the
+  Consequence Scanning Manual (CC BY-SA). Our versions are written
+  independently for this toolkit.
+
+- **NIST AI RMF and ISO 42001 clause lists** — re-derived from the public
+  primary documents, not from any third party's phrasing.
+
+## Pending permission
+
+- **Felicity Wild** (https://www.linkedin.com/in/felicity-wild/), instructor of
+  the course *AI Ethics for Freelancers* under the brand *Nobody Cares About
+  Ethics*, has been asked for permission to include curriculum materials and
+  specific framework expressions from her course. Until that permission is
+  granted, this repository contains only independently re-derived content.
+
+## Unlicensed sources deliberately excluded
+
+- `lyndonkl/claude` has no LICENSE file. None of its content — including the
+  six-step ethics assessment workflow, the JSON rubric, or the template
+  structures — has been copied or paraphrased into this repository. The
+  general ideas (stakeholder mapping, fairness scoring, mitigation design) are
+  independently derivable from NIST, ISO, IEEE EAD, and other public sources.
+
+## Runtime dependencies
+
+- `typer` (MIT) — CLI framework
+- `pydantic` (MIT) — schema validation
+- `pyyaml` (MIT) — YAML parsing
+- `jinja2` (BSD-3-Clause) — templating
+- `fairlearn` (MIT) — fairness metrics (optional extra)
+- `pandas` (BSD-3-Clause), `scikit-learn` (BSD-3-Clause), `numpy` (BSD-3-Clause), `scipy` (BSD-3-Clause) — fairness deps
+
+## Referenced, not included
+
+- Tristan Harris's TED talks and Anthropic's Claude Constitution are referenced
+  by URL only; no content is bundled.
