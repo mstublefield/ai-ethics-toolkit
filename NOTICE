@@ -37,13 +37,20 @@ Nothing in this repository was copied verbatim from unlicensed sources.
 - **NIST AI RMF and ISO 42001 clause lists** — re-derived from the public
   primary documents, not from any third party's phrasing.
 
-## Pending permission
+## Granted permission — attributed
 
 - **Felicity Wild** (https://www.linkedin.com/in/felicity-wild/), instructor of
   the course *AI Ethics for Freelancers* under the brand *Nobody Cares About
-  Ethics*, has been asked for permission to include curriculum materials and
-  specific framework expressions from her course. Until that permission is
-  granted, this repository contains only independently re-derived content.
+  Ethics*, granted permission on **2026-04-22** (via LinkedIn DM) for this
+  toolkit to be released publicly under MIT with credit. Attribution in this
+  repository covers the framework shapes and teaching patterns she developed
+  and teaches — including the Five Questions (per-task check), Five-Layer
+  Impact Analysis, Consequence Scanning as applied to freelance/solo AI use,
+  the AI Use Policy template structure, and the "six ethical challenges"
+  (transparency, accountability, fairness, privacy, plus quality and mental
+  health) framing. Her raw course materials (videos, transcripts, slides) are
+  not redistributed in this repository; all prose is independently written.
+  A dated record of the permission grant is archived in the author's notes.
 
 ## Unlicensed sources deliberately excluded
 

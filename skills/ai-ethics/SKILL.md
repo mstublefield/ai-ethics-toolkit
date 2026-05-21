@@ -1,12 +1,6 @@
 ---
 name: ai-ethics
-description: >
-  Apply ethics review, bias check, fairness audit, impact analysis, or consequence scanning
-  to an AI-related decision, draft, policy, or dataset. Also drafts AI use policies from values.
-  Trigger on: "ethics", "ethics review", "ethics check", "bias check", "fairness audit",
-  "impact assessment", "consequence scan", "AI policy", "responsible AI", or when a user
-  asks Claude to "consider the ethics" of what / how / why / who for an AI feature, product,
-  or workflow.
+description: "Ethics review, bias check, fairness audit, impact analysis, consequence scanning for AI decisions/drafts/policies/datasets. Drafts AI use policies from values. Triggers: 'ethics', 'bias check', 'fairness audit', 'impact assessment', 'AI policy', 'responsible AI', 'consider the ethics'."
 allowed-tools: Read, Write, Edit, Grep, Glob, Bash(uv:*), Bash(ethics:*)
 version: 0.1.0
 ---
