@@ -2,10 +2,6 @@
 
 A local CLI + Claude Code skill for reviewing AI features, drafting AI use policies, checking datasets for fairness, and auditing drafts for disclosure gaps. Designed so **the CLI does the mechanical work locally** (template rendering, regex lint, fairness metrics, report assembly) and **Claude does the judgment** (interpretation, context, conversation). Saves tokens; keeps sensitive data on your machine.
 
-## Status
-
-**v0.1 — cleared for MIT public release (not yet pushed public).** Felicity Wild granted permission on 2026-04-22 to release this toolkit under MIT with attribution; see [NOTICE](NOTICE). Her raw course materials (videos, transcripts, slides) remain in a gitignored folder and are **not** redistributed — only independently re-derived framework shapes and her named credit appear in the public content.
-
 ## Why this exists
 
 **Ethics is a practice, not a checklist.** Most "AI ethics" tooling produces a one-time report that nobody reads twice. Real ethics review is repeated, low-friction, and woven into the workflow — per task, per project, per business-model change. This toolkit gives you scaffolding for all three scales: [Five Questions](skills/ai-ethics/references/frameworks/five-questions.md) for a single task, [Five-Layer Impact Analysis](skills/ai-ethics/references/frameworks/ai-impact-analysis.md) for a project, [Consequence Scanning](skills/ai-ethics/references/frameworks/consequence-scanning.md) for a business model.
