@@ -54,8 +54,10 @@ rules:
     description: >
       Phone numbers are identifiable personal data. Confirm consent or redact.
     patterns:
-      - '\b\+?\d{1,3}[\s.-]?\(?\d{2,4}\)?[\s.-]?\d{3,4}[\s.-]?\d{3,4}\b'
-      - '\b\d{3}[\s.-]\d{3}[\s.-]\d{4}\b'
+      # (?<![/=]) skips digit runs that are URL path or query-parameter components
+      # (preceded by / or =) — e.g. numeric Facebook page/post IDs are not phone numbers.
+      - '(?<![/=])\b\+?\d{1,3}[\s.-]?\(?\d{2,4}\)?[\s.-]?\d{3,4}[\s.-]?\d{3,4}\b'
+      - '(?<![/=])\b\d{3}[\s.-]\d{3}[\s.-]\d{4}\b'
 
   - id: pii-ssn
     name: US Social Security Number pattern
